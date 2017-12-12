@@ -24,52 +24,50 @@ KNN – ленивый классификатор.
 
 получим следующий результат:
 ![alt text](https://github.com/dmitrail/ALGORYTHM_KNN/blob/master/KNN_RAW.png) <br/>
-  Зададим Евклидово расстояние: <br/>
-  euclideanDistance <- function(u, v)
+    Зададим Евклидово расстояние: <br/>
+  >euclideanDistance <- function(u, v)<br/>
   >{<br/>
    >sqrt(sum((u - v)^2))<br/>
   >} <br/>
-  <br/>
-Просортируем объекты согласно расстояния до объекта z: <br/>
-  >sortObjectsByDist <- function(xl, z, metricFunction =
-  >euclideanDistance)
-  >{
-  >l <- dim(xl)[1]
-  >n <- dim(xl)[2] - 1
+    Просортируем объекты согласно расстояния до объекта z: <br/>
+  >sortObjectsByDist <- function(xl, z, metricFunction = euclideanDistance) <br/>
+  >{ <br/>
+  >l <- dim(xl)[1] <br/>
+  >n <- dim(xl)[2] - 1 <br/>
 Создадим матрицу расстояний: <br/>
-  >distances <- matrix(NA, l, 2)
-  >for (i in 1:l)
-  >{
-  >distances[i, ] <- c(i, metricFunction(xl[i, 1:n], z))
-  >}
+  >distances <- matrix(NA, l, 2) <br/>
+  >for (i in 1:l) <br/>
+  >{ <br/>
+  >distances[i, ] <- c(i, metricFunction(xl[i, 1:n], z)) <br/>
+  >} <br/>
 Сортируем: <br/>
-  >orderedXl <- xl[order(distances[, 2]), ]
-  >return (orderedXl);
-  >}
+  >orderedXl <- xl[order(distances[, 2]), ]<br/>
+  >return (orderedXl);<br/>
+  >}<br/>
 Применяем метод kNN: <br/>
-  >kNN <- function(xl, z, k)
-  >{
+  >kNN <- function(xl, z, k)<br/>
+  >{<br/>
   Сортируем выборку согласно классифицируемого объекта: <br/>
-  >orderedXl <- sortObjectsByDist(xl, z)
-  >n <- dim(orderedXl)[2] - 1
+  >orderedXl <- sortObjectsByDist(xl, z)<br/>
+  >n <- dim(orderedXl)[2] - 1<br/>
 Получаем классы первых k соседей:<br/>
-  >classes <- orderedXl[1:k, n + 1]
+  >classes <- orderedXl[1:k, n + 1]<br/>
 Составляем таблицу встречаемости каждого класса:<br/>
-  >counts <- table(classes)
+  >counts <- table(classes)<br/>
 Находим класс, который доминирует среди первых k соседей:<br/>
-  >class <- names(which.max(counts))
-  >return (class)
-  >}
+  >class <- names(which.max(counts))<br/>
+  >return (class)<br/>
+  >}<br/>
 Рисуем выборку:<br/>
   >colors <- c("setosa" = "red", "versicolor" = "green3",
-  >"virginica" = "blue")
-  >plot(iris[, 3:4], pch = 21, bg = colors[iris$Species], col
-  >= colors[iris$Species], asp = 1)
+  >"virginica" = "blue")<br/>
+  >plot(iris[, 3:4], pch = 21, bg = colors[iris$Species], col<br/>
+  >= colors[iris$Species], asp = 1)<br/>
 Классификация одного заданного объекта: <br/>
-  >z <- c(2.7, 1)
-  >xl <- iris[, 3:5]
-  >class <- kNN(xl, z, k=6)
-  >points(z[1], z[2], pch = 22, bg = colors[class], asp = 1)
+  >z <- c(2.7, 1)<br/>
+  >xl <- iris[, 3:5]<br/>
+  >class <- kNN(xl, z, k=6)<br/>
+  >points(z[1], z[2], pch = 22, bg = colors[class], asp = 1)<br/>
 ### Результатом работы, будет являться следующий вывод:
 ![alt text](https://github.com/dmitrail/ALGORYTHM_KNN/blob/master/KNN_DONE.png) 
 (Исходный код закреплен в шапке статьи)
