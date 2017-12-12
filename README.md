@@ -1,7 +1,6 @@
 # Метод К ближайших соседей
 
-Описание метода:
-  
+### Описание метода:
   KNN (k-Nearest Neighbors) – это алгоритм классификации, 
 KNN – ленивый классификатор.
 
@@ -15,14 +14,13 @@ KNN – ленивый классификатор.
 
 Как KNN понимает, какие точки находятся ближе всего? Для непрерывных данных kNN использует дистанционную метрику, например, Евклидову дистанцию (метрику). Выбор метрики зависит от типа данных.
 
-Алгоритм на языке R:
+### Алгоритм на языке R:
 
-Итак, Построим выборку ирисов Фишера:
-
-  colors <- c("setosa" = "red", "versicolor" = "green3",
-  "virginica" = "blue")
-  plot(iris[, 3:4], pch = 21, bg = colors[iris$Species],
-  col = colors[iris$Species])
+Итак, Построим выборку ирисов Фишера: <br/>
+  >colors <- c("setosa" = "red", "versicolor" = "green3",
+  >"virginica" = "blue")
+  >plot(iris[, 3:4], pch = 21, bg = colors[iris$Species],
+  >col = colors[iris$Species])
 
 получим следующий результат:
 ![alt text](https://github.com/dmitrail/ALGORYTHM_KNN/blob/master/KNN_RAW.png) 
