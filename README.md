@@ -79,5 +79,5 @@ KNN – ленивый классификатор.
   >class <- kNN(xl, z, k=6)<br/>
   >points(z[1], z[2], pch = 22, bg = colors[class], asp = 1)<br/>
 ### Результатом работы, будет являться следующий вывод:
-![alt text](https://github.com/dmitrail/ALGORYTHM_KNN/blob/master/KNN_DONE.png) 
+![alt text](https://github.com/dmitrail/ALGORYTHM_KNN/blob/master/KNN_DONE.png) <br/>
 (Исходный код закреплен в шапке статьи)
