@@ -28,7 +28,7 @@ KNN – ленивый классификатор.
   >euclideanDistance <- function(u, v)
   >{
   >sqrt(sum((u - v)^2))
-  >}
+  >} <br/>
 Просортируем объекты согласно расстояния до объекта z: <br/>
   >sortObjectsByDist <- function(xl, z, metricFunction =
   >euclideanDistance)
