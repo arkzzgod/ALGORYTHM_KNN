@@ -29,40 +29,50 @@ KNN – ленивый классификатор.
   >{<br/>
    >sqrt(sum((u - v)^2))<br/>
   >} <br/>
+  
     Просортируем объекты согласно расстояния до объекта z: <br/>
   >sortObjectsByDist <- function(xl, z, metricFunction = euclideanDistance) <br/>
   >{ <br/>
   >l <- dim(xl)[1] <br/>
   >n <- dim(xl)[2] - 1 <br/>
-Создадим матрицу расстояний: <br/>
+  
+  Создадим матрицу расстояний: <br/>
   >distances <- matrix(NA, l, 2) <br/>
   >for (i in 1:l) <br/>
   >{ <br/>
   >distances[i, ] <- c(i, metricFunction(xl[i, 1:n], z)) <br/>
   >} <br/>
+  
 Сортируем: <br/>
   >orderedXl <- xl[order(distances[, 2]), ]<br/>
   >return (orderedXl);<br/>
   >}<br/>
+  
 Применяем метод kNN: <br/>
   >kNN <- function(xl, z, k)<br/>
   >{<br/>
+  
   Сортируем выборку согласно классифицируемого объекта: <br/>
   >orderedXl <- sortObjectsByDist(xl, z)<br/>
   >n <- dim(orderedXl)[2] - 1<br/>
+  
 Получаем классы первых k соседей:<br/>
   >classes <- orderedXl[1:k, n + 1]<br/>
+  
 Составляем таблицу встречаемости каждого класса:<br/>
   >counts <- table(classes)<br/>
+  
 Находим класс, который доминирует среди первых k соседей:<br/>
   >class <- names(which.max(counts))<br/>
   >return (class)<br/>
   >}<br/>
+  
 Рисуем выборку:<br/>
   >colors <- c("setosa" = "red", "versicolor" = "green3",
   >"virginica" = "blue")<br/>
   >plot(iris[, 3:4], pch = 21, bg = colors[iris$Species], col<br/>
   >= colors[iris$Species], asp = 1)<br/>
+  
 Классификация одного заданного объекта: <br/>
   >z <- c(2.7, 1)<br/>
   >xl <- iris[, 3:5]<br/>
