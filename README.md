@@ -26,6 +26,7 @@ KNN – ленивый классификатор.
 
 получим следующий результат:
 ![alt text](https://github.com/dmitrail/ALGORYTHM_KNN/blob/master/KNN_RAW.png) 
+
 Зададим Евклидово расстояние:
   euclideanDistance <- function(u, v)
   {
@@ -76,4 +77,5 @@ KNN – ленивый классификатор.
   points(z[1], z[2], pch = 22, bg = colors[class], asp = 1)
 Результатом работы, будет являться следующий вывод:  
   ![alt text](https://github.com/dmitrail/ALGORYTHM_KNN/blob/master/KNN_DONE.png) 
+  
   (Исходный код закреплен в шапке статьи)
