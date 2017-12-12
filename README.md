@@ -26,9 +26,10 @@ KNN – ленивый классификатор.
 ![alt text](https://github.com/dmitrail/ALGORYTHM_KNN/blob/master/KNN_RAW.png) <br/>
   Зададим Евклидово расстояние: <br/>
   >euclideanDistance <- function(u, v)
-  {
-  sqrt(sum((u - v)^2))
-  >} <br/>
+  >{
+  >sqrt(sum((u - v)^2))
+  >} 
+  <br/>
 Просортируем объекты согласно расстояния до объекта z: <br/>
   >sortObjectsByDist <- function(xl, z, metricFunction =
   >euclideanDistance)
